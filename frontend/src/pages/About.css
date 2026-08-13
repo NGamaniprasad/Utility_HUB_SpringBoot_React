@@ -1,0 +1,372 @@
+/* ================================
+   ABOUT PAGE
+================================ */
+
+.about-page {
+  width: 100%;
+  background: #ffffff;
+  color: #111827;
+}
+
+
+/* ================================
+   COMMON
+================================ */
+
+.about-container {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+.about-label {
+  display: inline-block;
+
+  color: #9ca3af;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+
+/* ================================
+   HERO
+================================ */
+
+.about-hero {
+  padding: 120px 0;
+
+  background: #f8fafc;
+}
+
+.about-hero h1 {
+  max-width: 900px;
+
+  margin-top: 18px;
+
+  font-size: clamp(3.2rem, 7vw, 6rem);
+  line-height: 0.98;
+
+  letter-spacing: -0.065em;
+  font-weight: 800;
+}
+
+.about-hero h1 span {
+  color: #9ca3af;
+}
+
+.about-intro {
+  max-width: 650px;
+
+  margin-top: 30px;
+
+  color: #6b7280;
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+
+/* ================================
+   MISSION
+================================ */
+
+.about-mission {
+  padding: 120px 0;
+
+  background: #ffffff;
+}
+
+.about-two-column {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 100px;
+
+  align-items: start;
+}
+
+.about-heading h2 {
+  margin-top: 15px;
+
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.04;
+
+  letter-spacing: -0.055em;
+}
+
+.about-heading h2 span {
+  color: #9ca3af;
+}
+
+.about-text {
+  padding-top: 5px;
+}
+
+.about-text p {
+  margin-bottom: 24px;
+
+  color: #6b7280;
+
+  font-size: 0.95rem;
+  line-height: 1.9;
+}
+
+
+/* ================================
+   FEATURES
+================================ */
+
+.about-features {
+  padding: 120px 0;
+
+  background: #f8fafc;
+}
+
+.about-section-header {
+  max-width: 650px;
+
+  margin: 0 auto;
+
+  text-align: center;
+}
+
+.about-section-header h2 {
+  margin-top: 15px;
+
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1.04;
+
+  letter-spacing: -0.055em;
+}
+
+.about-section-header h2 span {
+  color: #9ca3af;
+}
+
+.about-section-header p {
+  margin-top: 20px;
+
+  color: #6b7280;
+
+  font-size: 0.95rem;
+}
+
+
+.about-feature-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+
+  margin-top: 60px;
+}
+
+
+.about-feature-card {
+  min-height: 250px;
+
+  padding: 30px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.about-feature-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+
+.feature-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #111827;
+  color: #ffffff;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+
+.about-feature-card h3 {
+  margin-top: 35px;
+
+  font-size: 1.15rem;
+}
+
+
+.about-feature-card p {
+  margin-top: 12px;
+
+  color: #6b7280;
+
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+
+/* ================================
+   CTA
+================================ */
+
+.about-cta {
+  padding: 110px 0;
+
+  background: #111827;
+
+  color: #ffffff;
+
+  text-align: center;
+}
+
+.about-cta .about-label {
+  color: #9ca3af;
+}
+
+.about-cta h2 {
+  margin-top: 15px;
+
+  font-size: clamp(2.6rem, 5vw, 4.5rem);
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+}
+
+.about-cta h2 span {
+  color: #9ca3af;
+}
+
+.about-cta p {
+  max-width: 500px;
+
+  margin: 25px auto 0;
+
+  color: #9ca3af;
+
+  font-size: 0.95rem;
+}
+
+
+.about-cta-actions {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  margin-top: 35px;
+}
+
+
+.about-primary-button,
+.about-secondary-button {
+  min-height: 48px;
+
+  padding: 0 20px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 18px;
+
+  border-radius: 8px;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+
+.about-primary-button {
+  background: #ffffff;
+  color: #111827;
+}
+
+.about-primary-button:hover {
+  background: #f3f4f6;
+}
+
+
+.about-secondary-button {
+  border: 1px solid #374151;
+
+  color: #ffffff;
+}
+
+.about-secondary-button:hover {
+  background: #1f2937;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+
+  .about-hero,
+  .about-mission,
+  .about-features {
+    padding: 90px 0;
+  }
+
+  .about-two-column {
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .about-feature-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .about-hero {
+    padding: 75px 0;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(2.8rem, 14vw, 4rem);
+  }
+
+  .about-mission,
+  .about-features {
+    padding: 75px 0;
+  }
+
+  .about-cta {
+    padding: 80px 0;
+  }
+
+  .about-cta-actions {
+    flex-direction: column;
+  }
+
+  .about-primary-button,
+  .about-secondary-button {
+    width: 100%;
+  }
+}

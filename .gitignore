@@ -1,0 +1,32 @@
+# Eclipse / STS
+.metadata/
+.recommenders/
+.settings/
+.project
+.classpath
+
+# Java / Maven
+backend/target/
+**/target/
+*.class
+*.log
+
+# React / Node
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db

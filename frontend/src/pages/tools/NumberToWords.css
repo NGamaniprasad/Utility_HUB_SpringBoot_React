@@ -1,0 +1,214 @@
+
+.number-to-words-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.number-to-words-header {
+  padding: 56px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.number-to-words-header h1 {
+  margin: 8px 0 12px;
+  font-size: 38px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.number-to-words-header p {
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   CONTENT
+========================================== */
+
+.number-to-words-content {
+  padding: 48px 0 70px;
+}
+
+.number-to-words-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.number-to-words-form label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.number-to-words-form input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.number-to-words-form input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.number-to-words-error {
+  margin-top: 12px;
+  padding: 11px 14px;
+  border-radius: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.number-to-words-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+
+/* ==========================================
+   RESULT
+========================================== */
+
+.number-to-words-result {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.number-to-words-result h2 {
+  margin: 8px 0 18px;
+  font-size: 22px;
+  color: #111827;
+}
+
+.number-to-words-output {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.number-to-words-output strong {
+  color: #111827;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   ORIGINAL NUMBER
+========================================== */
+
+.number-to-words-original {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+
+.number-to-words-original span {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.number-to-words-original strong {
+  color: #111827;
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   BACK BUTTON
+========================================== */
+
+.number-to-words-back {
+  max-width: 760px;
+  margin: 24px auto 0;
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+  .number-to-words-header {
+    padding: 40px 0;
+  }
+
+  .number-to-words-header h1 {
+    font-size: 30px;
+  }
+
+  .number-to-words-content {
+    padding: 32px 0 50px;
+  }
+
+  .number-to-words-card {
+    padding: 22px;
+  }
+
+  .number-to-words-actions {
+    flex-direction: column;
+  }
+
+  .number-to-words-actions .btn {
+    width: 100%;
+  }
+
+  .number-to-words-original {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+

@@ -1,0 +1,119 @@
+.tool-management-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+.tool-management-content {
+  padding: 65px 0;
+}
+
+.tool-management-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.tool-management-toolbar h2 {
+  font-size: 1.7rem;
+  color: #172033;
+}
+
+.tool-management-toolbar p {
+  margin-top: 7px;
+  color: #667085;
+}
+
+.tool-table-wrapper {
+  margin-top: 30px;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 12px;
+}
+
+.tool-table {
+  width: 100%;
+  min-width: 750px;
+
+  border-collapse: collapse;
+}
+
+.tool-table th,
+.tool-table td {
+  padding: 17px 20px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.tool-table th {
+  background: #f8f9fb;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  color: #667085;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tool-table td {
+  font-size: 0.9rem;
+  color: #667085;
+}
+
+.tool-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tool-table td strong {
+  color: #172033;
+}
+
+.tool-status {
+  display: inline-flex;
+
+  padding: 5px 10px;
+
+  border-radius: 100px;
+
+  background: #f0f2f5;
+
+  color: #172033;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.tool-table-action {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #172033;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.tool-table-action:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .tool-management-content {
+    padding: 45px 0;
+  }
+
+  .tool-management-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

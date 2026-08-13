@@ -1,0 +1,219 @@
+package com.utilityhub.controller;
+
+import com.utilityhub.dto.CreateToolRequest;
+import com.utilityhub.dto.ToolResponse;
+import com.utilityhub.dto.UpdateToolRequest;
+import com.utilityhub.service.ToolService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/admin/tools")
+@CrossOrigin(origins = "http://localhost:5173")
+public class AdminToolController {
+
+    private final ToolService toolService;
+
+    public AdminToolController(
+            ToolService toolService
+    ) {
+        this.toolService = toolService;
+    }
+
+
+    // =========================================================
+    // GET ALL TOOLS
+    // =========================================================
+
+    @GetMapping
+    public ResponseEntity<List<ToolResponse>> getAllTools(
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                toolService.getAllTools()
+        );
+    }
+
+
+    // =========================================================
+    // GET ONE TOOL
+    // =========================================================
+
+    @GetMapping("/{toolId}")
+    public ResponseEntity<ToolResponse> getTool(
+            @PathVariable String toolId,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                toolService.getTool(toolId)
+        );
+    }
+
+
+    // =========================================================
+    // CREATE TOOL
+    // =========================================================
+
+    @PostMapping
+    public ResponseEntity<ToolResponse> createTool(
+            @Valid @RequestBody CreateToolRequest request,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        ToolResponse response =
+                toolService.createTool(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
+    }
+
+
+    // =========================================================
+    // UPDATE TOOL
+    // =========================================================
+
+    @PutMapping("/{toolId}")
+    public ResponseEntity<ToolResponse> updateTool(
+            @PathVariable String toolId,
+            @Valid @RequestBody UpdateToolRequest request,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                toolService.updateTool(
+                        toolId,
+                        request
+                )
+        );
+    }
+
+
+    // =========================================================
+    // ACTIVATE TOOL
+    // =========================================================
+
+    @PatchMapping("/{toolId}/activate")
+    public ResponseEntity<ToolResponse> activateTool(
+            @PathVariable String toolId,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                toolService.activateTool(toolId)
+        );
+    }
+
+
+    // =========================================================
+    // DEACTIVATE TOOL
+    // =========================================================
+
+    @PatchMapping("/{toolId}/deactivate")
+    public ResponseEntity<ToolResponse> deactivateTool(
+            @PathVariable String toolId,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        return ResponseEntity.ok(
+                toolService.deactivateTool(toolId)
+        );
+    }
+
+
+    // =========================================================
+    // DELETE TOOL
+    // =========================================================
+
+    @DeleteMapping("/{toolId}")
+    public ResponseEntity<Void> deleteTool(
+            @PathVariable String toolId,
+            Authentication authentication
+    ) {
+
+        if (!isAdmin(authentication)) {
+            return ResponseEntity
+                    .status(HttpStatus.FORBIDDEN)
+                    .build();
+        }
+
+        toolService.deleteTool(toolId);
+
+        return ResponseEntity
+                .noContent()
+                .build();
+    }
+
+
+    // =========================================================
+    // ADMIN CHECK
+    // =========================================================
+
+    private boolean isAdmin(
+            Authentication authentication
+    ) {
+
+        if (authentication == null ||
+                !authentication.isAuthenticated()) {
+
+            return false;
+        }
+
+        return authentication
+                .getAuthorities()
+                .stream()
+                .anyMatch(authority -> {
+
+                    String role =
+                            authority.getAuthority();
+
+                    return "ROLE_ADMIN".equals(role)
+                            || "ROLE_SUPER_ADMIN".equals(role);
+                });
+    }
+}

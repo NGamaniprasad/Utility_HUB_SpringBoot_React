@@ -1,0 +1,108 @@
+.add-tool-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+.add-tool-content {
+  padding: 65px 0;
+}
+
+.add-tool-card {
+  width: 100%;
+  max-width: 760px;
+
+  margin: 0 auto;
+
+  padding: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 14px;
+}
+
+.add-tool-form {
+  display: grid;
+  gap: 22px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #172033;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #172033;
+
+  outline: none;
+}
+
+.form-group input,
+.form-group select {
+  min-height: 48px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #667085;
+
+  box-shadow:
+    0 0 0 3px rgba(102, 112, 133, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #98a2b3;
+}
+
+.add-tool-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  padding-top: 10px;
+
+  border-top: 1px solid #edf0f4;
+}
+
+@media (max-width: 600px) {
+  .add-tool-content {
+    padding: 45px 0;
+  }
+
+  .add-tool-card {
+    padding: 25px 20px;
+  }
+
+  .add-tool-actions {
+    flex-direction: column-reverse;
+  }
+
+  .add-tool-actions .btn {
+    width: 100%;
+  }
+}

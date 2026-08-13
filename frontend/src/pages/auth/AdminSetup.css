@@ -1,0 +1,100 @@
+.admin-setup-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+.admin-setup-content {
+  padding: 65px 0;
+}
+
+.admin-setup-card {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 auto;
+  padding: 35px;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 14px;
+}
+
+.setup-notice {
+  padding: 16px 18px;
+
+  margin-bottom: 28px;
+
+  background: #f8f9fb;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 10px;
+}
+
+.setup-notice strong {
+  color: #172033;
+}
+
+.setup-notice p {
+  margin-top: 5px;
+
+  color: #667085;
+  font-size: 0.9rem;
+}
+
+.admin-setup-form {
+  display: grid;
+  gap: 22px;
+}
+
+.form-group {
+  display: grid;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #172033;
+}
+
+.form-group input {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 13px 14px;
+
+  border: 1px solid #d9dee7;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #172033;
+
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #667085;
+
+  box-shadow:
+    0 0 0 3px rgba(102, 112, 133, 0.1);
+}
+
+.form-group input::placeholder {
+  color: #98a2b3;
+}
+
+.admin-setup-form .btn {
+  width: 100%;
+  margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .admin-setup-content {
+    padding: 45px 0;
+  }
+
+  .admin-setup-card {
+    padding: 25px 20px;
+  }
+}

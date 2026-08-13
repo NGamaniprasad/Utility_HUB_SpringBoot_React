@@ -1,0 +1,174 @@
+.hero-section {
+  padding: 100px 0;
+  background: #ffffff;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  align-items: center;
+  gap: 70px;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero-label {
+  display: inline-block;
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #667085;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+  color: #172033;
+}
+
+.hero-content p {
+  max-width: 580px;
+  margin-top: 24px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #667085;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: #172033;
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #ffffff;
+  border-color: #d9dee7;
+  color: #172033;
+}
+
+.btn-large {
+  min-height: 50px;
+  padding: 0 24px;
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.visual-card {
+  width: min(100%, 430px);
+  min-height: 320px;
+  padding: 18px;
+  background: #f7f8fa;
+  border: 1px solid #e1e5eb;
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(23, 32, 51, 0.08);
+}
+
+.visual-card-header {
+  display: flex;
+  gap: 7px;
+}
+
+.visual-card-header span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #c5cad3;
+}
+
+.visual-content {
+  padding: 48px 25px;
+}
+
+.visual-line {
+  width: 75%;
+  height: 12px;
+  margin-bottom: 14px;
+  border-radius: 20px;
+  background: #d9dee7;
+}
+
+.visual-line.large {
+  width: 90%;
+  height: 22px;
+}
+
+.visual-line.short {
+  width: 50%;
+}
+
+.visual-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 36px;
+}
+
+.visual-boxes div {
+  height: 80px;
+  border-radius: 12px;
+  background: #e4e8ee;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .hero-visual {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    padding: 70px 0;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .visual-card {
+    min-height: 280px;
+  }
+}

@@ -1,0 +1,171 @@
+.admin-management-page {
+  min-height: 100vh;
+  background: #f8f9fb;
+}
+
+/* Header */
+
+.admin-page-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e8ebf0;
+}
+
+.admin-page-header-inner {
+  min-height: 220px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.admin-page-header h1 {
+  margin-top: 5px;
+
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+
+  color: #172033;
+}
+
+.admin-page-header p {
+  margin-top: 12px;
+  color: #667085;
+}
+
+/* Content */
+
+.admin-management-content {
+  padding: 65px 0;
+}
+
+.admin-management-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+}
+
+.admin-management-toolbar h2 {
+  font-size: 1.7rem;
+  color: #172033;
+}
+
+.admin-management-toolbar p {
+  margin-top: 7px;
+  color: #667085;
+}
+
+/* Table */
+
+.admin-table-wrapper {
+  margin-top: 30px;
+
+  overflow-x: auto;
+
+  background: #ffffff;
+
+  border: 1px solid #e1e5eb;
+  border-radius: 12px;
+}
+
+.admin-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  min-width: 800px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 17px 20px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #edf0f4;
+}
+
+.admin-table th {
+  background: #f8f9fb;
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  color: #667085;
+
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.admin-table td {
+  font-size: 0.9rem;
+  color: #667085;
+}
+
+.admin-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table td strong {
+  color: #172033;
+}
+
+/* Status */
+
+.status-badge {
+  display: inline-flex;
+
+  padding: 5px 10px;
+
+  border-radius: 100px;
+
+  background: #f0f2f5;
+
+  color: #172033;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+/* Action */
+
+.table-action {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #172033;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.table-action:hover {
+  text-decoration: underline;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .admin-page-header-inner {
+    min-height: 200px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .admin-management-content {
+    padding: 45px 0;
+  }
+
+  .admin-management-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

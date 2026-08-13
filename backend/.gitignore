@@ -1,0 +1,26 @@
+# Eclipse
+.metadata/
+.recommenders/
+.settings/
+.classpath
+.project
+
+# Java / Maven
+target/
+*.class
+
+# Node
+node_modules/
+dist/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
