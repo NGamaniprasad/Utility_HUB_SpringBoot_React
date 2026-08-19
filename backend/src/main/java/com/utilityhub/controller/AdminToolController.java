@@ -1,3 +1,7 @@
+
+
+
+
 package com.utilityhub.controller;
 
 import com.utilityhub.dto.CreateToolRequest;
@@ -21,15 +25,13 @@ public class AdminToolController {
 
     private final ToolService toolService;
 
-    public AdminToolController(
-            ToolService toolService
-    ) {
+    public AdminToolController(ToolService toolService) {
         this.toolService = toolService;
     }
 
-
     // =========================================================
     // GET ALL TOOLS
+    // GET /api/admin/tools
     // =========================================================
 
     @GetMapping
@@ -38,6 +40,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -48,9 +51,9 @@ public class AdminToolController {
         );
     }
 
-
     // =========================================================
     // GET ONE TOOL
+    // GET /api/admin/tools/{toolId}
     // =========================================================
 
     @GetMapping("/{toolId}")
@@ -60,6 +63,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -70,9 +74,9 @@ public class AdminToolController {
         );
     }
 
-
     // =========================================================
     // CREATE TOOL
+    // POST /api/admin/tools
     // =========================================================
 
     @PostMapping
@@ -82,6 +86,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -95,9 +100,9 @@ public class AdminToolController {
                 .body(response);
     }
 
-
     // =========================================================
     // UPDATE TOOL
+    // PUT /api/admin/tools/{toolId}
     // =========================================================
 
     @PutMapping("/{toolId}")
@@ -108,6 +113,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -121,9 +127,9 @@ public class AdminToolController {
         );
     }
 
-
     // =========================================================
     // ACTIVATE TOOL
+    // PATCH /api/admin/tools/{toolId}/activate
     // =========================================================
 
     @PatchMapping("/{toolId}/activate")
@@ -133,6 +139,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -143,9 +150,9 @@ public class AdminToolController {
         );
     }
 
-
     // =========================================================
     // DEACTIVATE TOOL
+    // PATCH /api/admin/tools/{toolId}/deactivate
     // =========================================================
 
     @PatchMapping("/{toolId}/deactivate")
@@ -155,6 +162,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -165,9 +173,9 @@ public class AdminToolController {
         );
     }
 
-
     // =========================================================
     // DELETE TOOL
+    // DELETE /api/admin/tools/{toolId}
     // =========================================================
 
     @DeleteMapping("/{toolId}")
@@ -177,6 +185,7 @@ public class AdminToolController {
     ) {
 
         if (!isAdmin(authentication)) {
+
             return ResponseEntity
                     .status(HttpStatus.FORBIDDEN)
                     .build();
@@ -188,7 +197,6 @@ public class AdminToolController {
                 .noContent()
                 .build();
     }
-
 
     // =========================================================
     // ADMIN CHECK
