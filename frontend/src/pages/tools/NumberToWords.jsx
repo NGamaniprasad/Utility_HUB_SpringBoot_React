@@ -1,217 +1,156 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./NumberToWords.css";
+import "./WordsToNumber.css";
 
-function NumberToWords() {
-  const [number, setNumber] = useState("");
+function WordsToNumber() {
+  const [words, setWords] = useState("");
   const [result, setResult] = useState("");
   const [error, setError] = useState("");
 
-  // ==========================================
-  // WORD ARRAYS
-  // ==========================================
+  // =========================================================
+  // NUMBER WORD VALUES
+  // =========================================================
 
-  const ones = [
-    "",
-    "One",
-    "Two",
-    "Three",
-    "Four",
-    "Five",
-    "Six",
-    "Seven",
-    "Eight",
-    "Nine",
-    "Ten",
-    "Eleven",
-    "Twelve",
-    "Thirteen",
-    "Fourteen",
-    "Fifteen",
-    "Sixteen",
-    "Seventeen",
-    "Eighteen",
-    "Nineteen",
-  ];
+  const values = {
+    zero: 0,
 
-  const tens = [
-    "",
-    "",
-    "Twenty",
-    "Thirty",
-    "Forty",
-    "Fifty",
-    "Sixty",
-    "Seventy",
-    "Eighty",
-    "Ninety",
-  ];
+    one: 1,
+    two: 2,
+    three: 3,
+    four: 4,
+    five: 5,
+    six: 6,
+    seven: 7,
+    eight: 8,
+    nine: 9,
 
-  // ==========================================
-  // CONVERT 0 - 99
-  // ==========================================
+    ten: 10,
+    eleven: 11,
+    twelve: 12,
+    thirteen: 13,
+    fourteen: 14,
+    fifteen: 15,
+    sixteen: 16,
+    seventeen: 17,
+    eighteen: 18,
+    nineteen: 19,
 
-  const convertBelowHundred = (value) => {
-    if (value < 20) {
-      return ones[value];
-    }
-
-    const ten = Math.floor(value / 10);
-    const remainder = value % 10;
-
-    return (
-      tens[ten] +
-      (remainder > 0 ? ` ${ones[remainder]}` : "")
-    );
+    twenty: 20,
+    thirty: 30,
+    forty: 40,
+    fifty: 50,
+    sixty: 60,
+    seventy: 70,
+    eighty: 80,
+    ninety: 90,
   };
 
-  // ==========================================
-  // CONVERT 0 - 999
-  // ==========================================
+  // =========================================================
+  // CONVERT WORDS TO SUM
+  // =========================================================
 
-  const convertBelowThousand = (value) => {
-    if (value < 100) {
-      return convertBelowHundred(value);
+  const convertWordsToNumber = (input) => {
+    const text = input
+      .toLowerCase()
+      .replace(/-/g, " ")
+      .replace(/,/g, "")
+      .trim();
+
+    if (!text) {
+      throw new Error(
+        "Please enter number words."
+      );
     }
 
-    const hundred = Math.floor(value / 100);
-    const remainder = value % 100;
+    const tokens = text.split(/\s+/);
 
-    return (
-      `${ones[hundred]} Hundred` +
-      (remainder > 0
-        ? ` ${convertBelowHundred(remainder)}`
-        : "")
-    );
+    let sum = 0;
+
+    for (const word of tokens) {
+      // Ignore "and"
+      if (word === "and") {
+        continue;
+      }
+
+      // Normal number words
+      if (
+        Object.prototype.hasOwnProperty.call(
+          values,
+          word
+        )
+      ) {
+        sum += values[word];
+        continue;
+      }
+
+      // Hundred
+      if (word === "hundred") {
+        sum *= 100;
+        continue;
+      }
+
+      // Thousand
+      if (word === "thousand") {
+        sum *= 1000;
+        continue;
+      }
+
+      // Lakh
+      if (word === "lakh") {
+        sum *= 100000;
+        continue;
+      }
+
+      // Crore
+      if (word === "crore") {
+        sum *= 10000000;
+        continue;
+      }
+
+      throw new Error(
+        `Invalid word: "${word}"`
+      );
+    }
+
+    return sum;
   };
 
-  // ==========================================
-  // INDIAN NUMBER SYSTEM
-  // Crore / Lakh / Thousand / Hundred
-  // ==========================================
-
-  const numberToWords = (value) => {
-    if (value === 0) {
-      return "Zero";
-    }
-
-    let remaining = value;
-    const parts = [];
-
-    // Crore
-    if (remaining >= 10000000) {
-      const crore = Math.floor(
-        remaining / 10000000
-      );
-
-      parts.push(
-        `${convertBelowThousand(crore)} Crore`
-      );
-
-      remaining %= 10000000;
-    }
-
-    // Lakh
-    if (remaining >= 100000) {
-      const lakh = Math.floor(
-        remaining / 100000
-      );
-
-      parts.push(
-        `${convertBelowThousand(lakh)} Lakh`
-      );
-
-      remaining %= 100000;
-    }
-
-    // Thousand
-    if (remaining >= 1000) {
-      const thousand = Math.floor(
-        remaining / 1000
-      );
-
-      parts.push(
-        `${convertBelowThousand(thousand)} Thousand`
-      );
-
-      remaining %= 1000;
-    }
-
-    // Remaining
-    if (remaining > 0) {
-      parts.push(
-        convertBelowThousand(remaining)
-      );
-    }
-
-    return parts.join(" ");
-  };
-
-  // ==========================================
-  // CONVERT
-  // ==========================================
+  // =========================================================
+  // CONVERT BUTTON
+  // =========================================================
 
   const handleConvert = () => {
     setError("");
     setResult("");
 
-    const value = number.trim();
+    try {
+      const number =
+        convertWordsToNumber(words);
 
-    if (!value) {
-      setError("Please enter a number.");
-      return;
-    }
-
-    // Only positive whole numbers
-    if (!/^\d+$/.test(value)) {
-      setError(
-        "Please enter a valid whole number."
+      setResult(
+        number.toLocaleString("en-IN")
       );
-      return;
-    }
-
-    // Remove leading zeroes
-    const normalized = value.replace(/^0+/, "") || "0";
-
-    // JavaScript Number safe integer limit
-    const numericValue = Number(normalized);
-
-    if (
-      !Number.isSafeInteger(numericValue)
-    ) {
+    } catch (err) {
       setError(
-        "Please enter a number up to 15 digits."
+        err.message ||
+        "Unable to convert."
       );
-      return;
     }
-
-    // Current implementation supports up to 99,99,99,999
-    if (numericValue > 999999999) {
-      setError(
-        "Please enter a number up to 99,99,99,999."
-      );
-      return;
-    }
-
-    setResult(
-      numberToWords(numericValue)
-    );
   };
 
-  // ==========================================
+  // =========================================================
   // CLEAR
-  // ==========================================
+  // =========================================================
 
   const handleClear = () => {
-    setNumber("");
+    setWords("");
     setResult("");
     setError("");
   };
 
-  // ==========================================
+  // =========================================================
   // ENTER KEY
-  // ==========================================
+  // =========================================================
 
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -219,32 +158,30 @@ function NumberToWords() {
     }
   };
 
-  // ==========================================
+  // =========================================================
   // RENDER
-  // ==========================================
+  // =========================================================
 
   return (
-    <main className="number-to-words-page">
+    <main className="words-to-number-page">
 
-      {/* ======================================
-          HEADER
-      ====================================== */}
+      {/* HEADER */}
 
-      <section className="number-to-words-header">
+      <section className="words-to-number-header">
 
         <div className="container">
 
           <span className="section-label">
-            TEXT TO WORDS
+            NUMBER CALCULATOR
           </span>
 
           <h1>
-            Number to Words
+            Words to Number
           </h1>
 
           <p>
-            Convert numbers into words using
-            the Indian numbering system.
+            Enter number words and calculate
+            their total value.
           </p>
 
         </div>
@@ -252,50 +189,99 @@ function NumberToWords() {
       </section>
 
 
-      {/* ======================================
-          CONTENT
-      ====================================== */}
+      {/* CONTENT */}
 
-      <section className="number-to-words-content">
+      <section className="words-to-number-content">
 
         <div className="container">
 
-          <div className="number-to-words-card">
+          <div className="words-to-number-card">
 
-            <div className="number-to-words-form">
+            {/* FORM */}
 
-              <label htmlFor="number">
-                Enter Number
+            <div className="words-to-number-form">
+
+              <label htmlFor="numberWords">
+                Enter Number Words
               </label>
 
-              <input
-                id="number"
-                type="text"
-                inputMode="numeric"
-                value={number}
+              <textarea
+                id="numberWords"
+                value={words}
                 onChange={(event) =>
-                  setNumber(event.target.value)
+                  setWords(
+                    event.target.value
+                  )
                 }
                 onKeyDown={handleKeyDown}
-                placeholder="Example: 1234567"
+                placeholder="Example: one two three"
+                rows="4"
                 autoComplete="off"
               />
 
+              {/* EXAMPLES */}
+
+              <div className="words-to-number-examples">
+
+                <span>
+                  Examples:
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setWords(
+                      "one two three"
+                    )
+                  }
+                >
+                  one two three
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setWords(
+                      "one three"
+                    )
+                  }
+                >
+                  one three
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setWords(
+                      "five ten twenty"
+                    )
+                  }
+                >
+                  five ten twenty
+                </button>
+
+              </div>
+
+
+              {/* ERROR */}
+
               {error && (
-                <div className="number-to-words-error">
+                <div className="words-to-number-error">
                   {error}
                 </div>
               )}
 
 
-              <div className="number-to-words-actions">
+              {/* BUTTONS */}
+
+              <div className="words-to-number-actions">
 
                 <button
                   type="button"
                   className="btn btn-primary"
                   onClick={handleConvert}
                 >
-                  Convert to Words
+                  Calculate
                 </button>
 
                 <button
@@ -311,40 +297,28 @@ function NumberToWords() {
             </div>
 
 
-            {/* ==================================
-                RESULT
-            ================================== */}
+            {/* RESULT */}
 
-            {result && (
+            {result !== "" && (
 
-              <div className="number-to-words-result">
+              <div className="words-to-number-result">
 
                 <span className="section-label">
                   RESULT
                 </span>
 
                 <h2>
-                  Number in Words
+                  Total
                 </h2>
 
-                <div className="number-to-words-output">
-
-                  <strong>
-                    {result}
-                  </strong>
-
-                </div>
-
-                <div className="number-to-words-original">
+                <div className="words-main-result">
 
                   <span>
-                    Number
+                    Calculated Number
                   </span>
 
                   <strong>
-                    {Number(
-                      number
-                    ).toLocaleString("en-IN")}
+                    {result}
                   </strong>
 
                 </div>
@@ -356,11 +330,9 @@ function NumberToWords() {
           </div>
 
 
-          {/* ==================================
-              BACK TO DASHBOARD
-          ================================== */}
+          {/* BACK */}
 
-          <div className="number-to-words-back">
+          <div className="words-to-number-back">
 
             <Link
               to="/user/dashboard"
@@ -379,5 +351,4 @@ function NumberToWords() {
   );
 }
 
-export default NumberToWords;
-
+export default WordsToNumber;
