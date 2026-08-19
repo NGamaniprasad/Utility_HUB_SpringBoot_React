@@ -31,8 +31,11 @@ import EditAdmin from "../pages/admin/EditAdmin";
 import NumberToWords from "../pages/tools/NumberToWords";
 import AdminProtectedRoute from "./AdminProtectedRoute";
 import EMICalculator from "../pages/tools/EMICalculator";
+import WordsToNumber from "../pages/tools/WordsToNumber";
+import PercentageCalculator
+  from "../pages/tools/PercentageCalculator";
 
-
+import GSTCalculator from "../pages/tools/GSTCalculator";
 function AppRoutes() {
   return (
     <Routes>
@@ -165,6 +168,19 @@ function AppRoutes() {
 <Route
   path="/tools/emi-calculator"
   element={<EMICalculator />}
+/>
+<Route
+  path="tools/words-to-number"
+  element={<WordsToNumber />}
+/>
+<Route
+  path="/tools/gst-calculator"
+  element={<GSTCalculator />}
+/>
+
+<Route
+  path="/tools/percentage-calculator"
+  element={<PercentageCalculator />}
 />
 
     </Routes>
