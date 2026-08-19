@@ -1,0 +1,509 @@
+/* =========================================================
+   PERCENTAGE CALCULATOR PAGE
+   ========================================================= */
+
+.percentage-calculator-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #1e293b;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.percentage-calculator-header {
+  padding: 70px 0 55px;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.percentage-calculator-header .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.percentage-calculator-header .section-label {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  color: #2563eb;
+  text-transform: uppercase;
+}
+
+.percentage-calculator-header h1 {
+  margin: 0 0 14px;
+
+  font-size: 42px;
+  line-height: 1.2;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.percentage-calculator-header p {
+  max-width: 680px;
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+
+  color: #64748b;
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.percentage-calculator-content {
+  padding: 55px 0 70px;
+}
+
+.percentage-calculator-content .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.percentage-calculator-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.percentage-calculator-form {
+  padding: 40px;
+}
+
+.percentage-calculator-form > label {
+  display: block;
+  margin-bottom: 10px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.percentage-calculator-form select {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  outline: none;
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-calculator-form select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   FORM GROUP
+   ========================================================= */
+
+.percentage-form-group {
+  margin-top: 22px;
+}
+
+.percentage-form-group label {
+  display: block;
+  margin-bottom: 9px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+.percentage-form-group input {
+  width: 100%;
+  height: 48px;
+
+  padding: 0 14px;
+  box-sizing: border-box;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #0f172a;
+
+  font-family: inherit;
+  font-size: 15px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.percentage-form-group input:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================================
+   REMOVE NUMBER SPINNER
+   ========================================================= */
+
+.percentage-form-group input::-webkit-outer-spin-button,
+.percentage-form-group input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
+.percentage-form-group input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.percentage-calculator-error {
+  margin-top: 20px;
+  padding: 12px 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #b91c1c;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.percentage-calculator-actions {
+  display: flex;
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.percentage-calculator-actions .btn {
+  min-height: 44px;
+
+  padding: 0 20px;
+
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.percentage-calculator-actions .btn:hover {
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.percentage-calculator-actions .btn-primary {
+  border: 1px solid #2563eb;
+
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.percentage-calculator-actions .btn-primary:hover {
+  background: #1d4ed8;
+
+  box-shadow:
+    0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
+
+.percentage-calculator-actions .btn-secondary {
+  border: 1px solid #cbd5e1;
+
+  background: #ffffff;
+  color: #334155;
+}
+
+.percentage-calculator-actions .btn-secondary:hover {
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.percentage-calculator-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px;
+
+  background: #f8fafc;
+
+  border-left: 1px solid #e2e8f0;
+}
+
+.percentage-calculator-result .section-label {
+  display: inline-block;
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+
+  color: #16a34a;
+}
+
+.percentage-calculator-result h2 {
+  margin: 0 0 28px;
+
+  font-size: 25px;
+  line-height: 1.3;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   MAIN RESULT
+   ========================================================= */
+
+.percentage-main-result {
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.percentage-main-result span {
+  display: block;
+  margin-bottom: 14px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #64748b;
+}
+
+.percentage-main-result strong {
+  display: block;
+
+  font-size: 40px;
+  line-height: 1.2;
+
+  font-weight: 700;
+
+  color: #2563eb;
+
+  word-break: break-word;
+}
+
+
+/* =========================================================
+   BACK TO DASHBOARD
+   ========================================================= */
+
+.percentage-calculator-back {
+  margin-top: 25px;
+}
+
+.percentage-calculator-back .btn {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #334155;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.percentage-calculator-back .btn:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+  .percentage-calculator-card {
+    grid-template-columns: 1fr;
+  }
+
+  .percentage-calculator-result {
+    border-left: none;
+    border-top: 1px solid #e2e8f0;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .percentage-calculator-header {
+    padding: 45px 0 35px;
+  }
+
+  .percentage-calculator-header .container,
+  .percentage-calculator-content .container {
+    padding: 0 16px;
+  }
+
+  .percentage-calculator-header h1 {
+    font-size: 32px;
+  }
+
+  .percentage-calculator-header p {
+    font-size: 15px;
+  }
+
+  .percentage-calculator-content {
+    padding: 35px 0 50px;
+  }
+
+  .percentage-calculator-form,
+  .percentage-calculator-result {
+    padding: 25px;
+  }
+
+  .percentage-main-result {
+    padding: 24px 15px;
+  }
+
+  .percentage-main-result strong {
+    font-size: 32px;
+  }
+
+  .percentage-calculator-actions {
+    flex-direction: column;
+  }
+
+  .percentage-calculator-actions .btn {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+  .percentage-calculator-header h1 {
+    font-size: 28px;
+  }
+
+  .percentage-calculator-form,
+  .percentage-calculator-result {
+    padding: 20px;
+  }
+
+  .percentage-main-result strong {
+    font-size: 28px;
+  }
+
+}
