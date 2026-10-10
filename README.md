@@ -1066,6 +1066,19 @@ React route:
 
 ---
 
+# SCREEN SHOTS:
+
+<img width="640" height="337" alt="ul1" src="https://github.com/user-attachments/assets/b1f4e472-7f27-4511-ba0f-e218d13a6972" />
+<img width="640" height="337" alt="ul2" src="https://github.com/user-attachments/assets/7cf21780-195d-4fff-b580-d7b4fe96ab62" />
+
+<img width="640" height="339" alt="ul3" src="https://github.com/user-attachments/assets/50a97be8-f397-4ae6-9a60-df36c5b442a8" />
+
+<img width="640" height="344" alt="ul4" src="https://github.com/user-attachments/assets/c71cb175-e3b4-41d6-8ddc-84d79186a8a5" />
+
+
+
+
+
 # Future Improvements
 
 Possible future features include:
@@ -1101,3 +1114,6 @@ Add your preferred license here before publishing the project publicly.
 
 ```
 ```
+
+# Author 
+-- N Gamini Prasad
